@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Condominio} from '../../models/condominio.model';
-import {CondominioService} from '../../services/condominio/condominio';
+import {CondominioService} from '../../services/condominio/condominio.service';
 
 @Component({
   standalone: true,
