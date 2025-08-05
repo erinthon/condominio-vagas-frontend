@@ -6,13 +6,11 @@ import { App } from './app/app';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'condominios',
+    redirectTo: 'vagas',
     pathMatch: 'full'
   },
-  {
-    path: 'condominios', loadComponent: () => import('./app/components/condominio-list/condominio-list.component').then(m => m.CondominioListComponent)
-  },
-  // { path: 'vagas', loadComponent: () => import('./app/components/vaga-list/vaga-list.component').then(m => m.VagaListComponent) },
+  { path: 'condominios', loadComponent: () => import('./app/components/condominio-list/condominio-list.component').then(m => m.CondominioListComponent) },
+  { path: 'vagas', loadComponent: () => import('./app/components/vaga-list/vaga-list.component').then(m => m.VagaListComponent) },
 ];
 
 bootstrapApplication(App, {
