@@ -1,0 +1,24 @@
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Condominio} from '../../models/condominio.model';
+import {CondominioService} from '../../services/condominio/condominio';
+
+@Component({
+  standalone: true,
+  selector: 'app-condominio-list',
+  imports: [CommonModule],
+  templateUrl: './condominio-list.component.html',
+  styleUrls: ['./condominio-list.component.scss']
+})
+export class CondominioListComponent implements OnInit {
+  condominios: Condominio[] = [];
+
+  constructor(private condominioService: CondominioService) {}
+
+  ngOnInit(): void {
+    this.condominioService.list().subscribe({
+      next: data => this.condominios = data,
+      error: err => console.error('Erro ao carregar condomínios', err)
+    });
+  }
+}
